@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Machine Learning End to End — Mentorship Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="app">
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-logo">🧠</div>
+      <div>
+        <h1>ML End-to-End</h1>
+        <p>Mentorship Dashboard</p>
+      </div>
+    </div>
+    <nav class="nav" id="nav"></nav>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <div class="main">
+    <header class="topbar">
+      <button class="btn small" id="menuBtn" title="Toggle menu">☰</button>
+      <div class="progress"><div id="progressBar"></div></div>
+      <span class="counter" id="counter">1 / 1</span>
+      <button class="btn small" id="themeBtn" title="Toggle light/dark theme">🌓</button>
+      <button class="btn small" id="presentBtn" title="Presentation mode (P)">▶ Present</button>
+    </header>
+
+    <main class="content" id="content">
+
+      <!-- ============ 1. WELCOME ============ -->
+      <section class="slide" data-title="Welcome" data-group="Start" data-icon="👋">
+        <div class="hero">
+          <div class="float">🤖</div>
+          <h2>Machine Learning,<br />End to End</h2>
+          <p>A friendly, no-jargon tour of how machines learn from data — from a business question all the way to a live, monitored product. Built for future <b>Data Scientists</b>, <b>ML Engineers</b> and <b>AI Engineers</b>.</p>
+          <div class="controls" style="margin-top:20px">
+            <button class="btn primary" data-goto="1">Start the journey →</button>
+            <button class="btn" data-goto-id="roles">Jump to career roles</button>
+          </div>
+        </div>
+
+        <div class="stats">
+          <div class="stat"><b>0</b><span class="muted small">prior ML knowledge needed</span></div>
+          <div class="stat"><b>10</b><span class="muted small">steps in the ML lifecycle</span></div>
+          <div class="stat"><b>3</b><span class="muted small">hands-on interactive demos</span></div>
+          <div class="stat"><b>3</b><span class="muted small">career paths compared</span></div>
+        </div>
+
+        <div class="grid g3 section-gap">
+          <div class="card tint-purple">
+            <div class="icon">🎯</div>
+            <h3>What you'll learn</h3>
+            <ul>
+              <li>What ML actually is (and isn't)</li>
+              <li>The full lifecycle of an ML project</li>
+              <li>How to tell if a model is any good</li>
+            </ul>
+          </div>
+          <div class="card tint-cyan">
+            <div class="icon">🧭</div>
+            <h3>How to use this</h3>
+            <ul>
+              <li>Use <span class="kbd">←</span> <span class="kbd">→</span> to move between topics</li>
+              <li>Press <span class="kbd">P</span> for presentation mode</li>
+              <li>Click, drag and play with the demos</li>
+            </ul>
+          </div>
+          <div class="card tint-green">
+            <div class="icon">🏠📧</div>
+            <h3>Two running examples</h3>
+            <p class="small muted">We'll keep coming back to two simple problems so everything stays concrete:</p>
+            <ul>
+              <li><b>Predicting house prices</b></li>
+              <li><b>Detecting spam emails</b></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 2. WHAT IS ML ============ -->
+      <section class="slide" data-title="What is Machine Learning?" data-group="Foundations" data-icon="❓">
+        <div class="eyebrow">Foundations</div>
+        <h2 class="title">What is Machine Learning?</h2>
+        <p class="lead">Machine Learning (ML) is teaching computers to <b>learn patterns from examples</b> instead of following rules a human wrote by hand.</p>
+
+        <div class="compare card">
+          <div>
+            <h3>🧑‍💻 Traditional programming</h3>
+            <div class="flow">
+              <div class="box">Rules (written by a human)</div>
+              <div class="arrow">+</div>
+              <div class="box">Data</div>
+              <div class="arrow">↓</div>
+              <div class="box hl">Answers</div>
+            </div>
+            <p class="small muted" style="margin-top:10px">"If the email contains 'FREE MONEY', mark it as spam." — works until spammers write "FR33 M0NEY".</p>
+          </div>
+          <div class="vs">VS</div>
+          <div>
+            <h3>🤖 Machine Learning</h3>
+            <div class="flow">
+              <div class="box">Data (examples)</div>
+              <div class="arrow">+</div>
+              <div class="box">Answers (labels)</div>
+              <div class="arrow">↓</div>
+              <div class="box hl">Rules (a "model")</div>
+            </div>
+            <p class="small muted" style="margin-top:10px">Show the computer 100,000 emails already labelled spam / not spam, and it figures out the patterns itself.</p>
+          </div>
+        </div>
+
+        <div class="callout analogy">
+          Think of teaching a child what a <b>dog</b> is. You don't give them a rulebook ("four legs, fur, tail…" — a cat has those too!). You just point at many dogs and say "dog". Eventually they recognise dogs they've never seen before. That's exactly what ML does — and that last part, <b>working on new, unseen examples</b>, is the whole point.
+        </div>
+
+        <div class="grid g3">
+          <div class="card"><div class="icon">📦</div><h3>Data</h3><p class="small muted">The examples we learn from. Like a textbook full of solved problems.</p></div>
+          <div class="card"><div class="icon">⚙️</div><h3>Model</h3><p class="small muted">The "pattern" the computer learned — a mathematical recipe that turns inputs into a prediction.</p></div>
+          <div class="card"><div class="icon">🔮</div><h3>Prediction</h3><p class="small muted">The model's answer for a new input: "this house is worth ₹85 L", "this email is 97% likely spam".</p></div>
+        </div>
+
+        <h4>Where you already use ML every day</h4>
+        <span class="tag">🎬 Netflix / YouTube recommendations</span>
+        <span class="tag">📧 Gmail spam filter</span>
+        <span class="tag">🗺️ Google Maps arrival time</span>
+        <span class="tag">📱 Face unlock</span>
+        <span class="tag">💳 Credit-card fraud alerts</span>
+        <span class="tag">⌨️ Keyboard autocomplete</span>
+        <span class="tag">💬 ChatGPT / Copilot</span>
+      </section>
+
+      <!-- ============ 3. AI FAMILY ============ -->
+      <section class="slide" data-title="AI vs ML vs DL vs GenAI" data-group="Foundations" data-icon="⭕">
+        <div class="eyebrow">Foundations</div>
+        <h2 class="title">AI, ML, Deep Learning &amp; Generative AI</h2>
+        <p class="lead">These words get mixed up all the time. They are actually <b>nested</b> — each one is a special case of the one around it. Click a circle.</p>
+
+        <div class="grid g2" style="align-items:center">
+          <div class="circles" id="circles">
+            <div class="circle c1" data-k="ai">Artificial Intelligence</div>
+            <div class="circle c2" data-k="ml">Machine Learning</div>
+            <div class="circle c3" data-k="dl">Deep Learning</div>
+            <div class="circle c4" data-k="gen">Generative<br />AI / LLMs</div>
+          </div>
+          <div class="card" id="circleInfo"></div>
+        </div>
+      </section>
+
+      <!-- ============ 4. TYPES ============ -->
+      <section class="slide" data-title="Types of Learning" data-group="Foundations" data-icon="🧩">
+        <div class="eyebrow">Foundations</div>
+        <h2 class="title">The 3 (+1) ways machines learn</h2>
+        <p class="lead">The main difference is <b>what kind of feedback</b> the computer gets while learning.</p>
+
+        <div class="grid g2">
+          <div class="card tint-purple">
+            <div class="icon">👩‍🏫</div>
+            <h3>Supervised Learning</h3>
+            <p><b>Learning with an answer key.</b> Every example comes with the correct answer (a "label").</p>
+            <ul class="small">
+              <li><b>Regression</b> — predict a number: house price, temperature, sales next month.</li>
+              <li><b>Classification</b> — predict a category: spam / not spam, cat / dog, will a customer leave?</li>
+            </ul>
+            <p class="small muted">≈ 80% of ML in industry is supervised.</p>
+          </div>
+          <div class="card tint-cyan">
+            <div class="icon">🔍</div>
+            <h3>Unsupervised Learning</h3>
+            <p><b>Finding structure with no answer key.</b> The computer groups or simplifies data on its own.</p>
+            <ul class="small">
+              <li><b>Clustering</b> — group customers into "segments" with similar habits.</li>
+              <li><b>Anomaly detection</b> — spot the one weird transaction among millions.</li>
+              <li><b>Dimensionality reduction</b> — summarise 100 columns into a few.</li>
+            </ul>
+          </div>
+          <div class="card tint-green">
+            <div class="icon">🎮</div>
+            <h3>Reinforcement Learning</h3>
+            <p><b>Learning by trial and error.</b> An "agent" takes actions and gets rewards or penalties.</p>
+            <ul class="small">
+              <li>Game-playing AIs (AlphaGo), robots learning to walk.</li>
+              <li>Fine-tuning chatbots to be helpful (RLHF).</li>
+            </ul>
+          </div>
+          <div class="card tint-pink">
+            <div class="icon">📚</div>
+            <h3>Self-Supervised Learning <span class="tag">the "+1"</span></h3>
+            <p><b>The data creates its own answer key.</b> Hide a word in a sentence and learn to guess it.</p>
+            <ul class="small">
+              <li>This is how Large Language Models (GPT, Llama) are pre-trained on the internet's text.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout analogy">
+          <b>Supervised</b> = studying with a teacher who marks your answers. <b>Unsupervised</b> = sorting a messy drawer into piles without being told the categories. <b>Reinforcement</b> = learning to ride a bicycle: nobody gives you the answer, you just fall (penalty) or don't (reward).
+        </div>
+      </section>
+
+      <!-- ============ 5. LIFECYCLE ============ -->
+      <section class="slide" data-title="The ML Lifecycle" data-group="End-to-End Lifecycle" data-icon="🔄" id="lifecycle">
+        <div class="eyebrow">End-to-End Lifecycle</div>
+        <h2 class="title">The 10 steps of a real ML project</h2>
+        <p class="lead">Building the model is only <b>one</b> step. Click each step to see what happens, using our house-price example.</p>
+
+        <div class="pipeline" id="pipeline"></div>
+        <div class="pdetail" id="pdetail"></div>
+
+        <div class="callout tip">
+          In real jobs, roughly <b>60–80% of the time goes into data work</b> (steps 2–5), not into choosing fancy algorithms. And the process is a <b>loop</b>: monitoring (step 10) often sends you back to collecting better data (step 2).
+        </div>
+      </section>
+
+      <!-- ============ 6. DATA ============ -->
+      <section class="slide" data-title="Data & Features" data-group="End-to-End Lifecycle" data-icon="🧹">
+        <div class="eyebrow">End-to-End Lifecycle · Steps 2–5</div>
+        <h2 class="title">Data: the fuel of every model</h2>
+        <p class="lead">"Garbage in, garbage out." A simple model on clean data almost always beats a fancy model on messy data.</p>
+
+        <h4>What a dataset looks like</h4>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Size (sq ft)</th><th>Bedrooms</th><th>Location</th><th>Age (yrs)</th><th>Has parking</th><th style="color:var(--yellow)">Price (₹ L) ← label</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1200</td><td>2</td><td>Hyderabad</td><td>5</td><td>Yes</td><td>78</td></tr>
+              <tr><td>1850</td><td>3</td><td>Bengaluru</td><td>2</td><td>Yes</td><td>142</td></tr>
+              <tr><td>900</td><td>2</td><td>Pune</td><td style="color:var(--red)">— missing —</td><td>No</td><td>55</td></tr>
+              <tr><td style="color:var(--red)">95000</td><td>3</td><td>Chennai</td><td>10</td><td>Yes</td><td>90</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small muted" style="margin-top:8px">Each <b>row</b> is one example (one house). Each <b>column</b> is a <b>feature</b> (a clue). The column we want to predict is the <b>label</b> / <b>target</b>. Spot the problems in red: a missing value and a typo (95,000 sq ft!).</p>
+
+        <div class="grid g4 section-gap">
+          <div class="card">
+            <div class="icon">📥</div><h3>Collect</h3>
+            <p class="small muted">Databases, CSV files, APIs, web scraping, sensors, surveys. Ask: is it legal, unbiased, and representative?</p>
+          </div>
+          <div class="card">
+            <div class="icon">🧽</div><h3>Clean</h3>
+            <p class="small muted">Fix missing values, remove duplicates, correct typos and impossible values (outliers), unify formats.</p>
+          </div>
+          <div class="card">
+            <div class="icon">📊</div><h3>Explore (EDA)</h3>
+            <p class="small muted">Charts &amp; summaries to understand the data: distributions, correlations, surprises. "Interview your data."</p>
+          </div>
+          <div class="card">
+            <div class="icon">🛠️</div><h3>Engineer features</h3>
+            <p class="small muted">Create better clues: <code>price_per_sqft</code>, <code>distance_to_metro</code>, turn "Location" text into numbers.</p>
+          </div>
+        </div>
+
+        <h4>Splitting the data — the most important habit</h4>
+        <div class="card">
+          <div style="display:flex;height:38px;border-radius:10px;overflow:hidden;font-size:13px;font-weight:600">
+            <div style="flex:70;background:rgba(124,92,255,.5);display:grid;place-items:center">Training set · 70% — the model studies this</div>
+            <div style="flex:15;background:rgba(34,211,238,.45);display:grid;place-items:center">Validation · 15%</div>
+            <div style="flex:15;background:rgba(52,211,153,.45);display:grid;place-items:center">Test · 15%</div>
+          </div>
+          <p class="small muted" style="margin-top:10px"><b>Training</b> = the textbook. <b>Validation</b> = practice tests used to tune the model. <b>Test</b> = the final exam, opened only once at the very end.</p>
+        </div>
+
+        <div class="callout warn">
+          <b>Data leakage</b>: accidentally letting the model peek at information it won't have in real life (e.g. including "final sale date" when predicting whether a house will sell). The model looks brilliant in testing and fails in production.
+        </div>
+      </section>
+
+      <!-- ============ 7. LEARN DEMO ============ -->
+      <section class="slide" data-title="Demo: How a Model Learns" data-group="End-to-End Lifecycle" data-icon="📈">
+        <div class="eyebrow">Interactive Demo · Step 7 Training</div>
+        <h2 class="title">Watch a model learn</h2>
+        <p class="lead">Each dot is a house: size vs price. The model is a straight line. "Training" means nudging the line, step by step, to reduce its total error. This is called <b>gradient descent</b>.</p>
+
+        <div class="demo">
+          <div class="card">
+            <canvas id="gdCanvas" class="plot" width="720" height="440"></canvas>
+            <div class="controls">
+              <button class="btn primary" id="gdPlay">▶ Train</button>
+              <button class="btn" id="gdStep">+1 step</button>
+              <button class="btn" id="gdReset">↺ Reset</button>
+              <button class="btn" id="gdNew">🎲 New houses</button>
+            </div>
+            <label class="small muted">Learning rate (how big each nudge is): <b id="lrVal"></b></label>
+            <input type="range" id="gdLr" min="0" max="3" step="1" value="1" />
+          </div>
+          <div class="card">
+            <h3>Model status</h3>
+            <div class="metric"><span>Training steps</span><b id="gdIter">0</b></div>
+            <div class="metric"><span>Line formula</span><b id="gdEq">—</b></div>
+            <div class="metric"><span>Average error (loss)</span><b id="gdLoss">—</b></div>
+            <div class="meter" style="margin:10px 0 4px"><div id="gdLossBar"></div></div>
+            <p class="small muted">Bar shrinks as the model improves.</p>
+            <div class="callout analogy" style="margin-top:14px">
+              Imagine walking down a foggy hill to find the lowest point. You can't see the bottom, but you can feel which way is downhill — so you take a small step that way, again and again. The "hill" is the error; the bottom is the best line.
+            </div>
+            <p class="small muted">Try a <b>very high</b> learning rate: steps are so big the model overshoots and the error explodes. Too <b>low</b> and it barely moves.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ 8. FIT DEMO ============ -->
+      <section class="slide" data-title="Demo: Overfitting" data-group="End-to-End Lifecycle" data-icon="🎯">
+        <div class="eyebrow">Interactive Demo · Step 7–8</div>
+        <h2 class="title">Underfitting, overfitting &amp; the sweet spot</h2>
+        <p class="lead">A model must be complex enough to capture the pattern, but not so complex it memorises the noise. Slide the complexity and compare <b>training</b> error with <b>test</b> error (new data).</p>
+
+        <div class="demo">
+          <div class="card">
+            <canvas id="fitCanvas" class="plot" width="720" height="440"></canvas>
+            <label class="small muted" style="display:block;margin-top:12px">Model complexity (polynomial degree): <b id="degVal"></b></label>
+            <input type="range" id="degree" min="1" max="15" value="1" />
+            <div class="controls small muted">
+              <span>● <span style="color:#7c5cff">training points</span></span>
+              <span>● <span style="color:#fbbf24">test points (unseen)</span></span>
+              <span>— <span style="color:#22d3ee">model</span></span>
+              <button class="btn small" id="fitNew" style="margin-left:auto">🎲 New data</button>
+            </div>
+          </div>
+          <div class="card">
+            <h3>Scores</h3>
+            <div class="metric"><span>Training error</span><b id="trErr">—</b></div>
+            <div class="metric"><span>Test error (what really matters)</span><b id="teErr">—</b></div>
+            <div id="fitVerdict" class="verdict"></div>
+            <div class="grid" style="gap:10px;margin-top:14px">
+              <div class="small"><b>😴 Underfitting</b> <span class="muted">— too simple. Bad on training <i>and</i> test. Like a student who didn't study.</span></div>
+              <div class="small"><b>🎯 Good fit</b> <span class="muted">— captures the real trend. Good on both.</span></div>
+              <div class="small"><b>🤓 Overfitting</b> <span class="muted">— memorised the training data including its noise. Great on training, poor on test. Like a student who memorised last year's answers but can't solve new questions.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="callout tip">
+          <ul style="margin:0;padding-left:20px">
+            <li><b>Fixes for overfitting:</b> more data, simpler model, <b>regularization</b> (penalising complexity), <b>cross-validation</b>, early stopping, dropout (for neural nets).</li>
+            <li><b>Fixes for underfitting:</b> a more complex model (higher polynomial degree, deeper trees, more layers), better or more informative features, <b>less regularization</b> (smaller λ / alpha), longer training, and removing noise or errors from the data.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ============ 9. EVALUATE ============ -->
+      <section class="slide" data-title="Evaluating Models" data-group="End-to-End Lifecycle" data-icon="📏">
+        <div class="eyebrow">Interactive Demo · Step 8 Evaluation</div>
+        <h2 class="title">Is the model any good?</h2>
+        <p class="lead">Our spam filter gives each email a <b>spam score</b> from 0–100. We choose a <b>threshold</b>: above it, the email goes to spam. Move the threshold and watch the trade-off.</p>
+
+        <div class="demo">
+          <div class="card">
+            <div class="small muted">😈 = actually spam · 🙂 = actually a real email · <span style="color:var(--red)">red border</span> = sent to spam folder · number = model's score</div>
+            <div class="emails" id="emails"></div>
+            <label class="small muted">Threshold: <b id="thVal"></b> — emails scoring above this go to spam</label>
+            <input type="range" id="threshold" min="0" max="100" value="50" />
+            <h4>Confusion matrix</h4>
+            <div class="cm" id="cm"></div>
+          </div>
+          <div class="card">
+            <h3>Metrics</h3>
+            <div class="metric"><span>Accuracy <span class="muted small">— % of all calls that were right</span></span><b id="mAcc"></b></div>
+            <div class="metric"><span>Precision <span class="muted small">— of emails flagged, % truly spam</span></span><b id="mPre"></b></div>
+            <div class="metric"><span>Recall <span class="muted small">— of all spam, % we caught</span></span><b id="mRec"></b></div>
+            <div class="metric"><span>F1 score <span class="muted small">— balance of the two</span></span><b id="mF1"></b></div>
+            <div class="callout analogy" style="margin-top:14px">
+              <b>Precision</b> = "when I raise the alarm, am I right?" <b>Recall</b> = "did I catch all the bad guys?" A <b>high threshold</b> is cautious (high precision, low recall). A <b>low threshold</b> is paranoid (high recall, low precision).
+            </div>
+          </div>
+        </div>
+
+        <h4>Which metric for which problem?</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Problem type</th><th>Common metrics</th><th>Plain English</th></tr></thead>
+            <tbody>
+              <tr><td>Regression (house price)</td><td>MAE, RMSE, R²</td><td>"On average, we're off by ₹4 L." R² = how much of the variation we explain (1.0 = perfect).</td></tr>
+              <tr><td>Classification (spam)</td><td>Accuracy, Precision, Recall, F1, ROC-AUC</td><td>Accuracy is misleading if classes are imbalanced: if only 1% of transactions are fraud, "never fraud" is 99% accurate — and useless.</td></tr>
+              <tr><td>Medical screening</td><td>Recall first</td><td>Missing a sick patient is far worse than a false alarm.</td></tr>
+              <tr><td>Recommendations / search</td><td>Precision@K, NDCG</td><td>Are the top 10 results actually relevant?</td></tr>
+              <tr><td>LLM apps</td><td>Human ratings, LLM-as-judge, groundedness</td><td>Is the answer correct, relevant and based on real sources?</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ============ 10. ALGORITHMS ============ -->
+      <section class="slide" data-title="Algorithm Cheat Sheet" data-group="Toolbox" data-icon="🧰">
+        <div class="eyebrow">Toolbox</div>
+        <h2 class="title">Popular algorithms, explained simply</h2>
+        <p class="lead">An algorithm is the <b>learning method</b>. You don't need to memorise maths to start — understand <b>what each one is good at</b>.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Algorithm</th><th>Type</th><th>Simple idea</th><th>Good for</th></tr></thead>
+            <tbody>
+              <tr><td><b>Linear Regression</b></td><td>Regression</td><td>Draw the best straight line through the points.</td><td>Baselines, prices, trends</td></tr>
+              <tr><td><b>Logistic Regression</b></td><td>Classification</td><td>A line that splits two groups and outputs a probability.</td><td>Spam, churn, yes/no questions</td></tr>
+              <tr><td><b>Decision Tree</b></td><td>Both</td><td>A flowchart of yes/no questions: "Size &gt; 1500? → Location = city?"</td><td>Explainable decisions</td></tr>
+              <tr><td><b>Random Forest</b></td><td>Both</td><td>Hundreds of trees vote — wisdom of the crowd.</td><td>Robust all-rounder on tables</td></tr>
+              <tr><td><b>Gradient Boosting</b> (XGBoost, LightGBM)</td><td>Both</td><td>Trees built one after another, each fixing the previous one's mistakes.</td><td>⭐ Usually the winner on tabular data</td></tr>
+              <tr><td><b>K-Nearest Neighbours</b></td><td>Both</td><td>"You are like your 5 closest neighbours."</td><td>Small datasets, simple recommendations</td></tr>
+              <tr><td><b>K-Means</b></td><td>Clustering</td><td>Place K centres and group points around the nearest one.</td><td>Customer segmentation</td></tr>
+              <tr><td><b>PCA</b></td><td>Dim. reduction</td><td>Squash many columns into a few that keep most information.</td><td>Visualisation, speed-ups</td></tr>
+              <tr><td><b>Neural Networks</b></td><td>Both</td><td>Layers of simple "neurons" that together learn very complex patterns.</td><td>Images, audio, text, huge data</td></tr>
+              <tr><td><b>Transformers</b></td><td>Deep learning</td><td>Neural nets that pay "attention" to which words relate to which.</td><td>LLMs, translation, chatbots</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout tip">Always start with a <b>simple baseline</b> (e.g. predict the average price, or logistic regression). If your fancy model can't beat it, something is wrong.</div>
+
+        <h4>The standard tool stack</h4>
+        <span class="tag">🐍 Python</span><span class="tag">🐼 pandas</span><span class="tag">🔢 NumPy</span><span class="tag">📊 Matplotlib / Seaborn</span><span class="tag">🤖 scikit-learn</span><span class="tag">🌲 XGBoost / LightGBM</span><span class="tag">🔥 PyTorch</span><span class="tag">🧪 TensorFlow / Keras</span><span class="tag">🤗 Hugging Face</span><span class="tag">🗃️ SQL</span><span class="tag">📓 Jupyter</span><span class="tag">🌿 Git</span>
+      </section>
+
+      <!-- ============ 11. DL & GENAI ============ -->
+      <section class="slide" data-title="Deep Learning & GenAI" data-group="Toolbox" data-icon="✨">
+        <div class="eyebrow">Toolbox</div>
+        <h2 class="title">Deep Learning &amp; Generative AI</h2>
+        <p class="lead">Deep learning powers today's AI boom. AI Engineers mostly <b>build products on top of</b> large pre-trained models rather than training them from scratch.</p>
+
+        <div class="grid g3">
+          <div class="card tint-purple">
+            <div class="icon">🕸️</div><h3>Neural networks</h3>
+            <p class="small">Inputs flow through layers of tiny calculators ("neurons"). Early layers detect simple things (edges), deeper layers combine them into complex ideas (eyes → faces). "Deep" just means many layers.</p>
+          </div>
+          <div class="card tint-cyan">
+            <div class="icon">💬</div><h3>Large Language Models</h3>
+            <p class="small">Neural nets trained on huge amounts of text to <b>predict the next word</b>. Do that well enough at scale, and the model can write, summarise, translate and reason. Examples: GPT, Claude, Llama, Gemini.</p>
+          </div>
+          <div class="card tint-pink">
+            <div class="icon">🎨</div><h3>Generative AI</h3>
+            <p class="small">Models that <b>create</b> new content — text, images (DALL·E, Stable Diffusion), audio, video, code — rather than just classifying.</p>
+          </div>
+        </div>
+
+        <h4>How AI Engineers build with LLMs</h4>
+        <div class="grid g4">
+          <div class="card"><div class="icon">✍️</div><h3>Prompting</h3><p class="small muted">Write clear instructions &amp; examples. Cheapest, fastest lever.</p></div>
+          <div class="card"><div class="icon">📚</div><h3>RAG</h3><p class="small muted">Retrieval-Augmented Generation: look up relevant documents first, then let the LLM answer using them. Like an open-book exam.</p></div>
+          <div class="card"><div class="icon">🎓</div><h3>Fine-tuning</h3><p class="small muted">Further train a model on your own examples to specialise its style or skills.</p></div>
+          <div class="card"><div class="icon">🦾</div><h3>Agents</h3><p class="small muted">LLMs that plan and use tools (search, code, APIs) in a loop to finish multi-step tasks.</p></div>
+        </div>
+
+        <div class="callout analogy">
+          A pre-trained LLM is like a brilliant new graduate who has read the whole library but knows nothing about <i>your</i> company. <b>Prompting</b> = giving clear instructions. <b>RAG</b> = handing them the company handbook. <b>Fine-tuning</b> = sending them on a training course.
+        </div>
+        <div class="callout warn">LLMs can <b>hallucinate</b> — confidently state things that are false. Always ground answers in sources, evaluate systematically, and add guardrails for safety and privacy.</div>
+      </section>
+
+      <!-- ============ 12. MLOPS ============ -->
+      <section class="slide" data-title="Deployment & MLOps" data-group="End-to-End Lifecycle" data-icon="🚀">
+        <div class="eyebrow">End-to-End Lifecycle · Steps 9–10</div>
+        <h2 class="title">From notebook to real product: MLOps</h2>
+        <p class="lead">A model sitting in a notebook helps nobody. <b>Deployment</b> puts it where users can reach it; <b>MLOps</b> keeps it healthy over time.</p>
+
+        <div class="grid g3">
+          <div class="card">
+            <div class="icon">📦</div><h3>Package</h3>
+            <p class="small muted">Save the trained model, wrap it in an API (FastAPI / Flask), put it in a <b>Docker</b> container so it runs the same everywhere.</p>
+          </div>
+          <div class="card">
+            <div class="icon">☁️</div><h3>Serve</h3>
+            <p class="small muted"><b>Real-time</b>: a website asks for a price and gets it in milliseconds. <b>Batch</b>: score all customers overnight. Hosted on Azure ML, AWS SageMaker, GCP Vertex, or Kubernetes.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🩺</div><h3>Monitor</h3>
+            <p class="small muted">Track accuracy, latency and cost. Watch for <b>data drift</b>: the world changes (new neighbourhoods, inflation) and the model slowly gets worse.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🔁</div><h3>Retrain (CI/CD/CT)</h3>
+            <p class="small muted">Automated pipelines test code, retrain on fresh data and safely roll out new versions (A/B tests, canary releases).</p>
+          </div>
+          <div class="card">
+            <div class="icon">🗂️</div><h3>Track &amp; version</h3>
+            <p class="small muted">Record every experiment, dataset version and model version (MLflow, Weights &amp; Biases, DVC) so results are reproducible.</p>
+          </div>
+          <div class="card">
+            <div class="icon">⚖️</div><h3>Responsible AI</h3>
+            <p class="small muted">Check fairness across groups, explain predictions (SHAP), protect privacy, document limitations.</p>
+          </div>
+        </div>
+
+        <div class="callout analogy">
+          Training a model is like building a car. MLOps is everything after: the factory that builds it reliably, the dashboard warning lights, regular servicing, and recalls when something goes wrong.
+        </div>
+      </section>
+
+      <!-- ============ 13. ROLES ============ -->
+      <section class="slide" data-title="DS vs MLE vs AI Engineer" data-group="Career" data-icon="👥" id="roles">
+        <div class="eyebrow">Career</div>
+        <h2 class="title">Which role is right for you?</h2>
+        <p class="lead">All three work with ML, but they focus on different parts of the lifecycle. Many skills overlap — the difference is <b>emphasis</b>.</p>
+        <div class="grid g3" id="roleCards"></div>
+
+        <h4>Where each role spends its time in the lifecycle</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Lifecycle area</th><th>Data Scientist</th><th>ML Engineer</th><th>AI Engineer</th></tr></thead>
+            <tbody>
+              <tr><td>Business problem &amp; metrics</td><td>⭐⭐⭐</td><td>⭐⭐</td><td>⭐⭐</td></tr>
+              <tr><td>Data analysis &amp; statistics</td><td>⭐⭐⭐</td><td>⭐⭐</td><td>⭐</td></tr>
+              <tr><td>Model building &amp; experiments</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td><td>⭐⭐</td></tr>
+              <tr><td>Production code &amp; pipelines</td><td>⭐</td><td>⭐⭐⭐</td><td>⭐⭐⭐</td></tr>
+              <tr><td>Deployment, scaling, MLOps</td><td>⭐</td><td>⭐⭐⭐</td><td>⭐⭐</td></tr>
+              <tr><td>LLMs, prompting, RAG, agents</td><td>⭐</td><td>⭐⭐</td><td>⭐⭐⭐</td></tr>
+              <tr><td>Product / UX integration</td><td>⭐</td><td>⭐</td><td>⭐⭐⭐</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ============ 14. ROADMAP ============ -->
+      <section class="slide" data-title="Learning Roadmap" data-group="Career" data-icon="🗺️">
+        <div class="eyebrow">Career</div>
+        <h2 class="title">Your learning roadmap</h2>
+        <p class="lead">A practical, phase-by-phase plan (~6–9 months part-time). Tick items as you go — progress is saved in this browser.</p>
+        <div class="controls">
+          <span class="small muted">Overall progress</span>
+          <div class="meter" style="flex:1"><div id="roadBar"></div></div>
+          <b id="roadPct" class="small">0%</b>
+          <button class="btn small" id="roadReset">Reset</button>
+        </div>
+        <div class="timeline" id="timeline"></div>
+      </section>
+
+      <!-- ============ 15. PROJECTS & INTERVIEW ============ -->
+      <section class="slide" data-title="Projects & Interviews" data-group="Career" data-icon="💼">
+        <div class="eyebrow">Career</div>
+        <h2 class="title">Portfolio projects &amp; interview prep</h2>
+        <p class="lead">Recruiters want proof you can take a problem <b>end to end</b>. Three solid, well-explained projects beat twenty copied tutorials.</p>
+
+        <div class="grid g3">
+          <div class="card tint-purple">
+            <div class="icon">📊</div><h3>Data Scientist projects</h3>
+            <ul class="small">
+              <li>Customer churn prediction with a clear business recommendation</li>
+              <li>A/B test analysis of a website change</li>
+              <li>Sales forecasting with an interactive dashboard</li>
+            </ul>
+          </div>
+          <div class="card tint-cyan">
+            <div class="icon">⚙️</div><h3>ML Engineer projects</h3>
+            <ul class="small">
+              <li>House-price model served via FastAPI + Docker, deployed to the cloud</li>
+              <li>Automated retraining pipeline with MLflow tracking</li>
+              <li>Monitoring dashboard that alerts on data drift</li>
+            </ul>
+          </div>
+          <div class="card tint-pink">
+            <div class="icon">✨</div><h3>AI Engineer projects</h3>
+            <ul class="small">
+              <li>"Chat with your PDFs" RAG app with source citations</li>
+              <li>An agent that uses tools (search, calculator, APIs)</li>
+              <li>An evaluation suite measuring an LLM app's answer quality</li>
+            </ul>
+          </div>
+        </div>
+
+        <h4>What a great project README includes</h4>
+        <div class="grid g4">
+          <div class="card small"><b>1. Problem</b><br /><span class="muted">Who cares and why? What metric defines success?</span></div>
+          <div class="card small"><b>2. Data</b><br /><span class="muted">Source, cleaning steps, key EDA insights.</span></div>
+          <div class="card small"><b>3. Approach</b><br /><span class="muted">Baseline → improvements, with results table.</span></div>
+          <div class="card small"><b>4. Impact &amp; demo</b><br /><span class="muted">Live link or GIF, limitations, next steps.</span></div>
+        </div>
+
+        <h4>Common interview rounds</h4>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Round</th><th>What they test</th><th>Sample question</th></tr></thead>
+            <tbody>
+              <tr><td>Coding</td><td>Python, data structures, SQL</td><td>"Write a SQL query for the top 3 customers by revenue per month."</td></tr>
+              <tr><td>ML fundamentals</td><td>Concepts from this dashboard</td><td>"Explain overfitting and how you'd fix it." "Precision vs recall?"</td></tr>
+              <tr><td>Statistics / probability</td><td>Mostly Data Scientists</td><td>"How would you know if an A/B test result is significant?"</td></tr>
+              <tr><td>ML system design</td><td>Mostly MLE / AI Eng.</td><td>"Design a recommendation system for an e-commerce site." "Design a customer-support chatbot."</td></tr>
+              <tr><td>Project deep-dive</td><td>Ownership &amp; communication</td><td>"Walk me through your best project. What would you do differently?"</td></tr>
+              <tr><td>Behavioural</td><td>Teamwork, impact</td><td>"Tell me about a time your model didn't work as expected."</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout tip">Practise explaining every concept to a non-technical friend. If you can explain it simply, you understand it — and interviewers notice.</div>
+      </section>
+
+      <!-- ============ 16. GLOSSARY ============ -->
+      <section class="slide" data-title="Glossary" data-group="Reference" data-icon="📖">
+        <div class="eyebrow">Reference</div>
+        <h2 class="title">Jargon buster</h2>
+        <p class="lead">Every ML term you'll hear in your first month, in one plain sentence.</p>
+        <input class="search" id="glossSearch" type="search" placeholder="🔍 Search a term… (e.g. overfitting, embedding, epoch)" />
+        <div class="gloss" id="gloss"></div>
+      </section>
+
+      <!-- ============ 17. QUIZ ============ -->
+      <section class="slide" data-title="Self-Check Quiz" data-group="Reference" data-icon="📝">
+        <div class="eyebrow">Reference</div>
+        <h2 class="title">Quick self-check</h2>
+        <p class="lead">Test your understanding. Each answer comes with an explanation.</p>
+        <div class="card" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+          <span class="score" id="quizScore">Score: 0 / 0</span>
+          <button class="btn small" id="quizReset">↺ Retry</button>
+        </div>
+        <div id="quiz"></div>
+        <div class="callout tip">🎉 You've reached the end! Revisit the <a href="#" data-goto-id="lifecycle">ML lifecycle</a> anytime — it's the backbone of every Data Science, ML Engineering and AI Engineering role.</div>
+      </section>
+
+    </main>
+  </div>
+</div>
+<link rel="stylesheet" href="algorithms.css">
+<script src="algorithm-visuals.js"></script>
+<script src="algorithms.js"></script>
+<script src="algorithm-math.js"></script>
+  <script src="algorithm-cheatsheet.js"></script>
+  <script src="algorithms-extra.js"></script>
+  <script src="fe-details-1.js"></script>
+  <script src="fe-details-2.js"></script>
+  <script src="fe-details-3.js"></script>
+  <script src="fe-details-4.js"></script>
+  <script src="eda-fe.js"></script>
+  <script src="overfit-regularization.js"></script>
+  <script src="overfit-validation.js"></script>
+  <script src="overfit-fixes.js"></script>
+  <script src="metrics.js"></script>
+  <script src="remove-slides.js"></script>
+  <script src="framing.js"></script>
+  <script src="baselines.js"></script>
+  <script src="reorder-slides.js"></script>
+  <script src="remove-slides-2.js"></script>
+  <script src="tuning-figures.js"></script>
+  <script src="tuning-content.js"></script>
+  <script src="tuning.js"></script>
+  <script src="explain-figures.js"></script>
+  <script src="explain-content.js"></script>
+  <script src="explain.js"></script>
+  <script src="use-cases.js"></script>
+  <script src="slide-icons.js"></script>
+  <script src="app.js"></script>
+  <script src="print-pdf.js"></script>
+  <script src="welcome-tweaks.js"></script>
+</body>
+</html>

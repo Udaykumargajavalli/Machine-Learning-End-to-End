@@ -1,0 +1,69 @@
+/* Algorithms Explained slide: tabbed algorithm cards */
+#algorithms .algo-sub { opacity: .8; margin: .25rem 0 1rem; }
+
+.algo-filter, .algo-tabs { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: .75rem; }
+
+.algo-filter button, .algo-tabs button {
+  font: inherit; cursor: pointer; color: inherit;
+  background: rgba(127, 127, 127, .10);
+  border: 1px solid rgba(127, 127, 127, .30);
+  border-radius: 999px; padding: .4rem .85rem; font-size: .9rem;
+  transition: background .15s, border-color .15s, transform .1s;
+}
+.algo-filter button { font-size: .8rem; padding: .3rem .7rem; }
+.algo-filter button:hover, .algo-tabs button:hover { background: rgba(127, 127, 127, .20); }
+.algo-filter button.on,
+.algo-tabs button[aria-selected="true"] {
+  background: var(--accent, #6c8cff); border-color: var(--accent, #6c8cff); color: #fff;
+}
+.algo-tabs button[aria-selected="true"] { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0, 0, 0, .18); }
+.algo-tabs button:focus-visible, .algo-filter button:focus-visible { outline: 2px solid var(--accent, #6c8cff); outline-offset: 2px; }
+
+.algo-panel {
+  border: 1px solid rgba(127, 127, 127, .30); border-radius: 16px;
+  padding: 1.25rem 1.4rem; background: rgba(127, 127, 127, .06);
+  animation: algoIn .25s ease;
+}
+@keyframes algoIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+.algo-head { display: flex; align-items: center; gap: .9rem; }
+.algo-head h3 { margin: 0; }
+.algo-icon { font-size: 2.2rem; line-height: 1; }
+.algo-family {
+  display: inline-block; margin-top: .2rem; font-size: .75rem; letter-spacing: .03em;
+  text-transform: uppercase; opacity: .75;
+}
+.algo-idea { font-size: 1.1rem; margin: .9rem 0; }
+
+.algo-analogy, .algo-interview {
+  border-left: 4px solid var(--accent, #6c8cff); border-radius: 8px;
+  background: rgba(108, 140, 255, .10); padding: .7rem 1rem; margin: .8rem 0;
+}
+.algo-interview { border-left-color: #f5a524; background: rgba(245, 165, 36, .10); }
+.algo-analogy p, .algo-interview p { margin: .3rem 0 0; }
+
+.algo-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; }
+.algo-box {
+  border: 1px solid rgba(127, 127, 127, .25); border-radius: 12px; padding: .8rem 1rem;
+}
+.algo-box h4 { margin: 0 0 .4rem; }
+.algo-box h4 + p + h4 { margin-top: .8rem; }
+.algo-box p { margin: 0; }
+.algo-box ol, .algo-box ul { margin: 0; padding-left: 1.2rem; }
+.algo-box li { margin: .2rem 0; }
+.algo-box.good { border-color: rgba(34, 197, 94, .45); background: rgba(34, 197, 94, .07); }
+.algo-box.bad { border-color: rgba(239, 68, 68, .45); background: rgba(239, 68, 68, .07); }
+
+.algo-visual {
+  margin: .4rem auto 1rem; max-width: 560px; text-align: center;
+  border: 1px solid rgba(127, 127, 127, .25); border-radius: 14px;
+  padding: .7rem .8rem .6rem; background: rgba(127, 127, 127, .05);
+}
+.algo-visual svg { width: 100%; height: auto; display: block; overflow: visible; }
+.algo-visual figcaption { font-size: .85rem; opacity: .8; margin-top: .4rem; }
+
+@media (max-width: 760px) {
+  .algo-grid { grid-template-columns: 1fr; }
+  .algo-tabs { flex-wrap: nowrap; overflow-x: auto; padding-bottom: .3rem; }
+  .algo-tabs button { white-space: nowrap; }
+}
